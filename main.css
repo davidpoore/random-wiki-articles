@@ -10,6 +10,14 @@ body {
   margin: 0 auto;
 }
 
+.RandomArticles,
+.RandomImages {
+  font-size: 16px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 .Controls {
   text-align: center;
 }
@@ -89,4 +97,17 @@ body {
 .Article__noCategories {
   font-style: italic;
   margin-top: 15px;
+}
+
+.MainImageContainer {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.MainImageContainer__image {
+  display: block;
+  max-width: 100%;
+  margin: 10px auto;
+  border: 2px solid black;
 }

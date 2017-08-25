@@ -1,4 +1,4 @@
-function fetchRandomImages() {
+function fetchRandomArticles() {
   // clear validation
   clearValidation();
 
@@ -41,6 +41,36 @@ function fetchRandomImages() {
           articleCategoriesElementStr +
         '</div>'
       );
+    });
+  });
+}
+
+function fetchRandomImages() {
+  // clear validation
+  clearValidation();
+
+  // get value from form field
+  var numImages = $('.Controls__numberInput').val();
+
+  // validation
+  if (numImages === '' || parseInt(numImages) <=0 || parseInt(numImages) > 100) {
+    $('.Controls__numberInput').addClass('Controls__numberInput--error');
+    $('.Controls__errorMessage').css('display', 'block');
+    return;
+  }
+  // empty previous images
+  $('.MainImageContainer').empty();
+
+  // create request to fetch random image urls from wikipedia via wikimedia API
+  var randomArticleWithImage = 'http://en.wikipedia.org/w/api.php?format=json&action=query&generator=random&grnlimit=' + numImages + '&grnnamespace=6&prop=imageinfo&iiprop=url&callback=?';
+
+  // iterate over returned information and extract image urls
+  $.getJSON(randomArticleWithImage ,function(data) {
+    Object.keys(data.query.pages).forEach(function(key) {
+      var randomImgUrl = data.query.pages[key].imageinfo[0].url;
+
+      // append images to page
+      $('.MainImageContainer').append('<img class="MainImageContainer__image" src=' + randomImgUrl + '>');
     });
   });
 }

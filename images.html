@@ -4,7 +4,7 @@
   <head>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <title>Random Wikipedia Articles</title>
+    <title>Random Wikipedia Images</title>
 
     <!-- include jquery -->
     <script
@@ -22,23 +22,23 @@
 
   <body>
     <div class="Title">
-      Random Wikipedia Articles
+      Random Wikipedia Images
     </div>
 
-    <div class="RandomImages">
-      <a href='images.html'>Want random wiki images instead?</a>
+    <div class="RandomArticles">
+      <a href='index.html'>Want random wiki articles instead?</a>
     </div>
 
     <div class="Controls">
-      <label for="Controls__numberInput">Number of articles: </label>
+      <label for="Controls__numberInput">Number of images: </label>
       <input placeholder="1-100" id="Controls__numberInput" class="Controls__numberInput" type="text" title="Please enter a number between 1 and 100" maxlength="3" size="6" />
-      <button class="Controls__button" onClick="fetchRandomArticles();">Get Articles</button>
+      <button class="Controls__button" onClick="fetchRandomImages();">Get Images</button>
       <div class="Controls__errorMessage">
-        Please enter a number between 1 and 20
+        Please enter a number between 1 and 100
       </div>
     </div>
 
-    <div class="Articles">
+    <div class="MainImageContainer">
     </div>
   </body>
 </html>
