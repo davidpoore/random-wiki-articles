@@ -6,7 +6,7 @@ function fetchRandomImages() {
   var numArticles = $('.Controls__numberInput').val();
 
   // validation
-  if (numArticles === '' || parseInt(numArticles) <=0 || parseInt(numArticles) > 100) {
+  if (numArticles === '' || parseInt(numArticles) <=0 || parseInt(numArticles) > 20) {
     $('.Controls__numberInput').addClass('Controls__numberInput--error');
     $('.Controls__errorMessage').css('display', 'block');
     return;
