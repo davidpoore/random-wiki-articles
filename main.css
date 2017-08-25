@@ -1,12 +1,13 @@
 body {
-  background-color: #aaa;
+  background-color: #bbb;
 }
 
 .Title {
   text-align: center;
   font-size: 30px;
-  margin: 10px 0 20px 0;
+  padding: 10px 0 20px 0;
   font-weight: bold;
+  margin: 0 auto;
 }
 
 .Controls {
@@ -25,7 +26,7 @@ body {
 }
 
 .Articles {
-  width: 80%;
+  width: 1000px;
   margin: auto;
   margin-top: 40px;
   display: flex;
@@ -33,22 +34,44 @@ body {
 }
 
 .Article {
-  width: 33%;
+  width: 430px;
   display: inline-flex;
   flex-direction: column;
-  margin: 20px 0;
+  margin: 20px 5px;
   vertical-align: top;
+  padding: 15px 30px;
   font-size: 14px;
+  background-color: #eee;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.Article__titleSection {
+  display: flex;
 }
 
 .Article__title {
   font-size: 18px;
   font-weight: bold;
+  flex: 1 0 auto;
+  max-width: 80%;
+}
+
+.Article__link {
+  font-size: 12px;
+  flex: 0 1 auto;
+}
+
+.Article__summary {
+  padding: 12px 0px;
+  max-height: 300px;
+  overflow: auto;
 }
 
 .Article__categories {
   text-align: left;
-  margin-top: 5px;
+  margin-top: 15px;
   flex: 1 0 auto;
 }
 
@@ -66,8 +89,4 @@ body {
 .Article__noCategories {
   font-style: italic;
   margin-top: 15px;
-}
-
-.Article__link {
-  font-size: 12px;
 }

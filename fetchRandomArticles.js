@@ -18,35 +18,30 @@ function fetchRandomImages() {
   var randomArticlesUrl =
     'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=random&grnlimit=' +
       numArticles +
-        '&grnnamespace=0&prop=info|categories|revisions&inprop=url&rvprop=content&rvsection=0&callback=?';
+        '&grnnamespace=0&prop=info|categories|extracts&inprop=url&exintro&explaintext&callback=?';
 
   // iterate over returned information and extract page data
   var allPagesInfo = [];
 
   $.getJSON(randomArticlesUrl, function(data) {
     Object.keys(data.query.pages).forEach(function(pageId) {
-      allPagesInfo.push(data.query.pages[pageId]);
+      var pageInfo = data.query.pages[pageId];
+
+      var articleUrlElementStr = '<div class="Article__link"><a href="' + pageInfo.fullurl + '" target="_blank">Read More</a></div>';
+      var articleTitleElementStr = '<div class="Article__titleSection"><span class="Article__title">' + pageInfo.title + '</span>' + articleUrlElementStr + '</div>';
+      var articleSummaryElementStr = '<div class="Article__summary">' + pageInfo.extract + '</div>';
+      var articleCategoriesElementStr = buildCategoriesElementStr(pageInfo.categories);
+
+      // append images to page
+      $('.Articles').append(
+        '<div class="Article">' +
+          articleTitleElementStr +
+          '<br/>' +
+          articleSummaryElementStr +
+          articleCategoriesElementStr +
+        '</div>'
+      );
     });
-  }).then(function() {
-    getArticleSummaries(allPagesInfo);
-    buildArticlesElements(allPagesInfo);
-  });
-}
-
-function buildArticlesElements(allPagesInfo) {
-  allPagesInfo.forEach(function(pageInfo) {
-    var articleTitleElementStr = '<div class="Article__title">' + pageInfo.title + '</div>';
-    var articleCategoriesElementStr = buildCategoriesElementStr(pageInfo.categories);
-    var articleUrlElementStr = '<div class="Article__link"><a href="' + pageInfo.fullurl + '" target="_blank">Read More</a></div>';
-
-    // append images to page
-    $('.Articles').append(
-      '<div class="Article">' +
-        articleTitleElementStr +
-        articleCategoriesElementStr +
-        articleUrlElementStr +
-      '</div>'
-    );
   });
 }
 
@@ -69,18 +64,6 @@ function buildCategoriesElementStr(categories) {
 
   elementStr += '</div>';
   return elementStr;
-}
-
-function getArticleSummaries(allPagesInfo) {
-  allPagesInfo.forEach(function(pageInfo) {
-    var summaryUrl = 'https://en.wikipedia.org/w/api.php?format=json&action=query&pageids=' +
-      pageInfo.pageid +
-      '&prop=revisions&rvprop=content&rvsection=0&rvparse=true';
-
-    var pageSummary = $.getJSON(summaryUrl, function(data) {
-      console.log(data);
-    });
-  });
 }
 
 function clearValidation() {
