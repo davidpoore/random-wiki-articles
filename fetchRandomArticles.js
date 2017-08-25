@@ -16,7 +16,7 @@ function fetchRandomImages() {
 
   // create request to fetch random image urls from wikipedia via wikimedia API
   var randomArticlesUrl =
-    'http://en.wikipedia.org/w/api.php?format=json&action=query&generator=random&grnlimit=' +
+    'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=random&grnlimit=' +
       numArticles +
         '&grnnamespace=0&prop=info|categories|revisions&inprop=url&rvprop=content&rvsection=0&callback=?';
 
