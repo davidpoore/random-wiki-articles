@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <title>Random Wikipedia Articles</title>
+
+    <!-- include jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+
+    <!-- Our script -->
+    <script src='fetchRandomArticles.js' type='text/javascript'></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+
+  <body>
+    <div class="Title">
+      Random Wikipedia Articles
+    </div>
+
+    <div class="Controls">
+      <label for="Controls__numberInput">Number of articles: </label>
+      <input placeholder="1-100" id="Controls__numberInput" class="Controls__numberInput" value="6" type="text" title="Please enter a number between 1 and 100" maxlength="3" size="6" />
+      <button class="Controls__getImagesButton" onClick="fetchRandomImages();">Get Articles</button>
+      <div class="Controls__errorMessage">
+        Please enter a number between 1 and 100
+      </div>
+    </div>
+
+    <div class="Articles">
+    </div>
+  </body>
+</html>

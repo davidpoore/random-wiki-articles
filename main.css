@@ -1,0 +1,73 @@
+body {
+  background-color: #aaa;
+}
+
+.Title {
+  text-align: center;
+  font-size: 30px;
+  margin: 10px 0 20px 0;
+  font-weight: bold;
+}
+
+.Controls {
+  text-align: center;
+}
+
+.Controls__numberInput--error {
+  border: 1px darkred solid;
+}
+
+.Controls__errorMessage {
+  display: none;
+  color: darkred;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.Articles {
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Article {
+  width: 33%;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 20px 0;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.Article__title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.Article__categories {
+  text-align: left;
+  margin-top: 5px;
+  flex: 1 0 auto;
+}
+
+.Article__categories ul {
+  list-style: none;
+  font-size: 12px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.Article__categoriesTitle {
+  font-size: 16px;
+}
+
+.Article__noCategories {
+  font-style: italic;
+  margin-top: 15px;
+}
+
+.Article__link {
+  font-size: 12px;
+}
