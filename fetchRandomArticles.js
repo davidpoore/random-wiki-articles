@@ -62,7 +62,7 @@ function fetchRandomImages() {
   $('.MainImageContainer').empty();
 
   // create request to fetch random image urls from wikipedia via wikimedia API
-  var randomArticleWithImage = 'http://en.wikipedia.org/w/api.php?format=json&action=query&generator=random&grnlimit=' + numImages + '&grnnamespace=6&prop=imageinfo&iiprop=url&callback=?';
+  var randomArticleWithImage = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=random&grnlimit=' + numImages + '&grnnamespace=6&prop=imageinfo&iiprop=url&callback=?';
 
   // iterate over returned information and extract image urls
   $.getJSON(randomArticleWithImage ,function(data) {
